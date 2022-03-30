@@ -1,10 +1,19 @@
 from typing import Optional
 from fastapi import FastAPI, Header
 
-app = FastAPI()
+app = FastAPI(
+    title="Welcome - Scandinavian Airlines",
+    contact={
+        "name": "Alejandro Quisbert",
+        "email": "alejandropqc@protonmail.com",
+    },
+    license_info={
+        "name": "GNU General Public License v3.0",
+    },
+)
 
 
-@app.get("/")
+@app.get("/", tags=["welcome"])
 async def read_root(user_agent: Optional[str] = Header(None)):
     """
     Root path which returns a welcome message and a User Agent.

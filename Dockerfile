@@ -1,8 +1,10 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-alpine3.14
 LABEL description="Hello SAS"
-LABEL version="0.0.1"
 
+ADD ./entrypoint.sh /entrypoint.sh
+ADD ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 WORKDIR /src
-COPY ./requirements /requirements
-RUN pip install -r /requirements/development.txt
-ENTRYPOINT [ "/start-reload.sh" ]
+COPY ./src /src
+
+ENTRYPOINT [ "/entrypoint.sh" ]
