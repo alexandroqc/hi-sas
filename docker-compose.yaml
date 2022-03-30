@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  prices_api:
+  hello:
     container_name: 'prj_hello_sas'
     ports:
       - target: 80

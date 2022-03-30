@@ -9,3 +9,8 @@ Start application:
 ```bash
 docker-compose up -d
 ```
+
+## Running Tests
+```bash
+docker-compose exec hello pytest -v
+```
